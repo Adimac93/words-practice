@@ -4,7 +4,7 @@ from time import time
 
 def get_words_list():
     with open("words.txt", encoding="utf-8") as file:
-        return file.read().splitlines()
+        return file.read().lower().splitlines()
 
 def guess(words_to_practice: list) -> None:
     round_counter = 1
@@ -21,7 +21,7 @@ def guess(words_to_practice: list) -> None:
         for word in words_to_practice:
             en, pl = word
             print(pl)
-            answer = input(":")
+            answer = input(":").strip().lower()
             is_correct = answer == en
             if is_correct:
                 words_count-=1
