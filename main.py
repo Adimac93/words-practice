@@ -1,9 +1,10 @@
 from random import shuffle
 from time import time
 
+SEPARATOR=" - "
 
 def get_words_list():
-    with open("words.txt", encoding="utf-8") as file:
+    with open("words2.txt", encoding="utf-8") as file:
         return file.read().lower().splitlines()
 
 def guess(words_to_practice: list) -> None:
@@ -38,7 +39,7 @@ def guess(words_to_practice: list) -> None:
 
 
 
-base_list = [tuple(map(str.strip,line.split("-",maxsplit=1))) for line in get_words_list()]
+base_list = [tuple(map(str.strip,line.split(SEPARATOR,maxsplit=1))) for line in get_words_list()]
 start_time = time()
 
 print(f"Practicing {len(base_list)} words")
